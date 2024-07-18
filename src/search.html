@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<head>
+  <title>Transaction-Hub</title>
+  <!-- You MUST include jQuery 3.4+ before Fomantic -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <div class="ui big inverted main menu">
+    <a onclick="$('.ui.sidebar').sidebar('toggle');" class="item"
+      ><i class="bars icon"></i
+    ></a>
+    <div class="header item">
+      <h2>Transaction-Hub</h2>
+    </div>
+    <div class="right menu">
+      <a class="item"><i class="user circle outline icon"></i></a>
+      <a class="item"><i class="cog icon"></i></a>
+      <a class="item"><i class="sign out alternate icon"></i></a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="ui sidebar inverted vertical menu">
+    <div class="item">
+      <a class="header" href="">Search</a>
+    </div>
+    <div class="item">
+      <a class="header" href="">Integrated View</a>
+    </div>
+    <div class="item">
+      <div class="header">Aggregated</div>
+      <div class="menu">
+        <a class="item" href=""><p>Integrated</p></a>
+        <a class="item" href=""><p>Flux</p></a>
+      </div>
+    </div>
+    <div class="item">
+      <div class="header">Usage</div>
+      <div class="menu">
+        <a class="item" href=""><p>Schedule</p></a>
+        <a class="item" href=""><p>Wallet</p></a>
+        <a class="item" href=""><p>Invest</p></a>
+      </div>
+    </div>
+    <div class="item">
+      <div class="header">Monitor</div>
+      <div class="menu">
+        <a class="item" href=""><p>Balance</p></a>
+        <a class="item" href=""><p>Alert</p></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui container">
+    <!-- breadcumb -->
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <div class="divider">/</div>
+      <a class="section">Search</a>
+    </div>
+
+    <!-- page title-->
+    <h1 class="ui header">Search</h1>
+
+    <!-- content -->
+    <main id="main-content">
+      <table class="ui large selectable table">
+        <thead>
+          <tr>
+            <th style="width: 150px">Date</th>
+            <th>Description</th>
+            <th style="width: 120px"></th>
+            <th style="width: 120px"></th>
+            <th style="width: 120px" class="right aligned">Deposit</th>
+            <th style="width: 120px" class="right aligned">Withdrawal</th>
+            <th style="width: 120px" class="right aligned">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024-01-01 #0</td>
+            <td>Begin</td>
+            <td></td>
+            <td></td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">1000.00</td>
+          </tr>
+          <tr>
+            <td>2024-02-10 #0</td>
+            <td>ATM Withdrawal 2024-02-10</td>
+            <td>
+              <div class="ui yellow tiny label">
+                <i class="wallet icon"></i>ATM
+              </div>
+            </td>
+            <td></td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">500.00</td>
+            <td class="right aligned">500.00</td>
+          </tr>
+          <tr>
+            <td>2024-02-25 #0</td>
+            <td onclick="$('#20240225_00').modal('show');">
+              Bill Payment Electricity HK054873A8
+            </td>
+            <td>
+              <div class="ui grey tiny label">
+                <i class="calendar icon"></i>Bill
+              </div>
+            </td>
+            <td></td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">250.00</td>
+            <td class="right aligned">250.00</td>
+          </tr>
+          <tr>
+            <td>2024-02-25 #1</td>
+            <td>Bill Payment Mobile Data HK87915AC7</td>
+            <td>
+              <div class="ui grey tiny label">
+                <i class="calendar icon"></i>Bill
+              </div>
+            </td>
+            <td></td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">50.00</td>
+            <td class="right aligned">200.00</td>
+          </tr>
+          <tr>
+            <td>2024-02-25 #2</td>
+            <td
+              data-inverted=""
+              data-tooltip="fund transfer"
+              data-position="top center"
+              onclick="$('#20240225_02').modal('show');"
+            >
+              Chan Tai Man Transfer REF: HK78AD5ER6
+            </td>
+            <td></td>
+            <td>
+              <button class="ui icon primary tiny button">
+                <i class="exchange alternate icon"></i>
+              </button>
+            </td>
+            <td class="right aligned">800.00</td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">1000.00</td>
+          </tr>
+          <tr>
+            <td>2024-02-01 #0</td>
+            <td>End</td>
+            <td></td>
+            <td></td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">0.00</td>
+            <td class="right aligned">1000.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Modals -->
+
+      <div id="20240225_00" class="ui modal">
+        <div class="header">Transaction 2024-02-25 #2</div>
+        <div class="content">
+          <p></p>
+          <div class="ui grid">
+            <div class="five wide column">
+              <h3 class="ui header">Deposit</h3>
+              <p>0.00</p>
+            </div>
+            <div class="five wide column">
+              <h3 class="ui header">Withdrawal</h3>
+              <p>250.00</p>
+            </div>
+            <div class="six wide column">
+              <h3 class="ui header">Balance</h3>
+              <p>250.00</p>
+            </div>
+          </div>
+          <h3 class="ui header">Attacment</h3>
+          <div class="ui relaxed divided list">
+            <div class="item">
+              <i class="large file icon"></i>
+              <div class="content">
+                <a class="header">Electricity Payslip - 2024-02</a>
+                <div class="description">Last Updated: 2024-03-05</div>
+              </div>
+            </div>
+          </div>
+          <h3 class="ui header">Tag</h3>
+          <a class="ui grey label"><i class="calendar icon"></i>Bill</a>
+          <h3 class="ui header">Remark</h3>
+          <p></p>
+        </div>
+        <div class="actions">
+          <button class="ui black deny button">Close</button>
+          <button class="ui positive button">Edit</button>
+        </div>
+      </div>
+
+      <div id="20240225_02" class="ui modal">
+        <div class="header">Transaction 2024-02-25 #2</div>
+        <div class="content">
+          <p></p>
+          <div class="ui grid">
+            <div class="five wide column">
+              <h3 class="ui header">Deposit</h3>
+              <p>0.00</p>
+            </div>
+            <div class="five wide column">
+              <h3 class="ui header">Withdrawal</h3>
+              <p>800.00</p>
+            </div>
+            <div class="six wide column">
+              <h3 class="ui header">Balance</h3>
+              <p>1000.00</p>
+            </div>
+          </div>
+          <h3 class="ui header">Attacment</h3>
+          <div class="ui segment">no attachment</div>
+          <h3 class="ui header">Tag</h3>
+          <div class="ui segment">no tag</div>
+          <h3 class="ui header">Remark</h3>
+          <p>Fund Transfer</p>
+        </div>
+        <div class="actions">
+          <button class="ui black deny button">Close</button>
+          <button class="ui positive button">Edit</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
